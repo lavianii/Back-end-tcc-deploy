@@ -57,7 +57,9 @@ const servidor = async () => {
     app.delete('/removeCrime/:id', rotasCrime.removeCrime);
     app.put('/atualizaCrime/:id', rotasCrime.atualizaCrime);
 
-
+    app.get('/', (req, res) => {
+        res.send('Conectado');
+    })
     console.log('Conectado na porta 3001');
     app.listen(3001)
 }
