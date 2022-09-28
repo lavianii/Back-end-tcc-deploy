@@ -5,7 +5,7 @@ const express = require('express');
 const app = express();
 
 //ter acesso as funcoes
-const rotas = require('./src/controllers/usuarioEnviaComunicado.js');
+const rotas = require('./src/controllers/usuarioEnviaComunicado');
 const rotasCrime = require('./src/controllers/crimeEnviaComunicado');
 
 function middleWareGlobal(req, res, next) {
