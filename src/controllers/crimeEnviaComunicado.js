@@ -160,4 +160,5 @@ const atualizaCrime = async (req, res) => {
 
 }
 
+
 module.exports = { incluaCrime, recuperaCrime, removeCrime, atualizaCrime }
