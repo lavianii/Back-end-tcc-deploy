@@ -48,6 +48,7 @@ const servidor = async () => {
     //rotas do usuario
     app.post('/incluir', rotas.inclusao);
     app.get('/recupera/:id', rotas.recupera);
+    app.get('/recuperaTodos', rotas.recuperaTodos);
     app.delete('/remove/:id', rotas.remove);
     app.put('/atualiza/:id', rotas.atualiza);
 

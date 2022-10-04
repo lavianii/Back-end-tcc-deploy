@@ -79,5 +79,25 @@ const recupera = async (id) => {
         return false;
     }
 }
-module.exports = { inclua, atualiza, remove, recupera }
+
+const recuperaTodos = async () => {
+
+    const conexao = await bd.getConexao();
+
+    if(conexao === null)
+        return null;
+
+    try{
+
+        const sql = 'SELECT * FROM usuario';
+        const [linhas] = await conexao.query(sql);
+
+        return linhas;
+
+    } catch(error){
+        console.log(error);
+        return false;
+    }
+}
+module.exports = { inclua, atualiza, remove, recupera, recuperaTodos }
 
