@@ -111,4 +111,25 @@ const orderBy = async () => {
         return false;
     }
 }
-module.exports = { incluaCrime, recuperaCrime, removeCrime, atualizaCrime, atualizaQtdCrimes, orderBy }
+
+const recuperaTodosCrimes = async () => {
+
+    const conexao = await bd.getConexao();
+
+    if(conexao === null)
+        return null;
+
+    try{
+
+        const sql = 'SELECT * FROM crimes';
+        const [linhas] = await conexao.query(sql);
+
+        return linhas;
+
+    } catch(error){
+        console.log(error);
+        return false;
+    }
+}
+
+module.exports = { incluaCrime, recuperaCrime, removeCrime, atualizaCrime, atualizaQtdCrimes, orderBy, recuperaTodosCrimes }

@@ -159,7 +159,6 @@ const atualizaCrime = async (req, res) => {
 
 }
 
-
 const atualizaQtdCrimes = async (req, res) => {
     
     if (Object.values(req.body).length < 1 || !req.body.id) {
@@ -206,7 +205,7 @@ const atualizaQtdCrimes = async (req, res) => {
     }
 }
 
-const orderBy = async (req, res) => {
+const recuperaBairro = async (req, res) => {
 
   if(Object.values(req.body).length != 0){
     const erro = comunicado.novo('DSP', 'Fornecimento de dados sem proposito', 'Foram fornecidos dados desnecessarios').object;
@@ -236,4 +235,4 @@ const orderBy = async (req, res) => {
     }
 }
 
-module.exports = { incluaCrime, recuperaCrime, removeCrime, atualizaCrime, atualizaQtdCrimes, orderBy }
+module.exports = { incluaCrime, recuperaCrime, removeCrime, atualizaCrime, atualizaQtdCrimes, recuperaBairro }

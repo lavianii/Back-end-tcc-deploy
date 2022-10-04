@@ -55,7 +55,7 @@ const servidor = async () => {
     //rotas do crime
     app.post('/incluirCrime', rotasCrime.incluaCrime);
     app.get('/recuperaCrime/:id', rotasCrime.recuperaCrime);
-    app.get('/orderBy', rotasCrime.orderBy);
+    app.get('/recuperaBairro', rotasCrime.recuperaBairro);
     app.delete('/removeCrime/:id', rotasCrime.removeCrime);
     app.put('/atualizaCrime/:id', rotasCrime.atualizaCrime);
     app.put('/atualizaQtdCrimes/:id', rotasCrime.atualizaQtdCrimes);
