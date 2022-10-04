@@ -95,4 +95,20 @@ const atualizaQtdCrimes = async (crime) => {
     
 }
 
-module.exports = { incluaCrime, recuperaCrime, removeCrime, atualizaCrime, atualizaQtdCrimes }
+const orderBy = async () => {
+    const conexao = await bd.getConexao();
+
+    if(conexao === null)
+        return null;
+
+    try {
+        const sql = 'SELECT * FROM crimes ORDER BY qtd DESC';
+        const [linhas] = await conexao.query(sql);
+
+        return linhas;
+    } catch (error) {
+        console.log(error);
+        return false;
+    }
+}
+module.exports = { incluaCrime, recuperaCrime, removeCrime, atualizaCrime, atualizaQtdCrimes, orderBy }
