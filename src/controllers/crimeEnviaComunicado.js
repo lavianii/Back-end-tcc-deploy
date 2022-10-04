@@ -213,7 +213,7 @@ const recuperaBairro = async (req, res) => {
     return res.status(422).json(erro);
   }
 
-  const ret = await crimeDBO.orderBy();
+  const ret = await crimeDBO.recuperaBairro();
 
     if (ret === null) {
         const erro = comunicado.novoComunicado('CBD', 'Sem conexao com o BD', 'Não foi possivel estabelecer conexao com o banco de dados').object;

@@ -95,7 +95,7 @@ const atualizaQtdCrimes = async (crime) => {
     
 }
 
-const orderBy = async () => {
+const recuperaBairro = async () => {
     const conexao = await bd.getConexao();
 
     if(conexao === null)
@@ -112,24 +112,4 @@ const orderBy = async () => {
     }
 }
 
-const recuperaTodosCrimes = async () => {
-
-    const conexao = await bd.getConexao();
-
-    if(conexao === null)
-        return null;
-
-    try{
-
-        const sql = 'SELECT * FROM crimes';
-        const [linhas] = await conexao.query(sql);
-
-        return linhas;
-
-    } catch(error){
-        console.log(error);
-        return false;
-    }
-}
-
-module.exports = { incluaCrime, recuperaCrime, removeCrime, atualizaCrime, atualizaQtdCrimes, orderBy, recuperaTodosCrimes }
+module.exports = { incluaCrime, recuperaCrime, removeCrime, atualizaCrime, atualizaQtdCrimes, recuperaBairro }
