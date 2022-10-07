@@ -4,6 +4,7 @@ const bd = require('./src/database/bd');
 const express = require('express');
 const app = express();
 
+
 //ter acesso as funcoes
 const rotas = require('./src/controllers/usuarioEnviaComunicado');
 const rotasCrime = require('./src/controllers/crimeEnviaComunicado');
@@ -49,6 +50,8 @@ const servidor = async () => {
     app.post('/incluir', rotas.inclusao);
     app.get('/recupera/:id', rotas.recupera);
     app.get('/recuperaTodos', rotas.recuperaTodos);
+    //erro = Cannot read properties of undefined (reading 'email')
+    app.get('/login/:email/:senha', rotas.login);
     app.delete('/remove/:id', rotas.remove);
     app.put('/atualiza/:id', rotas.atualiza);
 

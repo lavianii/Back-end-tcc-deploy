@@ -99,5 +99,26 @@ const recuperaTodos = async () => {
         return false;
     }
 }
-module.exports = { inclua, atualiza, remove, recupera, recuperaTodos }
+
+const login = async (login) => {
+  
+  const conexao = await bd.getConexao();
+
+  if(conexao === null)
+    return null;
+
+  try{
+    const sql = 'SELECT id From usuario WHERE email = ? AND senha = ? ';
+    const dados = [login.email, login.senha];
+    const [linhas] = await conexao.query(sql, dados);
+
+    return linhas;
+    
+  } catch(error){
+    console.log(error);
+    return false;
+  }
+  
+}
+module.exports = { inclua, atualiza, remove, recupera, recuperaTodos, login }
 
