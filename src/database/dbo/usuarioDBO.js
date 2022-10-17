@@ -108,7 +108,7 @@ const login = async (login) => {
     return null;
 
   try{
-    const sql = 'SELECT id From usuario WHERE email = ? AND senha = ? ';
+    const sql = 'SELECT id, email, senha From usuario WHERE email = ? AND senha = ? ';
     const dados = [login.email, login.senha];
     const [linhas] = await conexao.query(sql, dados);
 
