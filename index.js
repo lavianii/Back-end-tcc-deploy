@@ -50,7 +50,6 @@ const servidor = async () => {
     app.post('/incluir', rotas.inclusao);
     app.get('/recupera/:id', rotas.recupera);
     app.get('/recuperaTodos', rotas.recuperaTodos);
-    //erro = Cannot read properties of undefined (reading 'email')
     app.get('/login/:email/:senha', rotas.login);
     app.delete('/remove/:id', rotas.remove);
     app.put('/atualiza/:id', rotas.atualiza);
