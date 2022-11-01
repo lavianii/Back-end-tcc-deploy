@@ -21,6 +21,45 @@ const inclua = async (sugestoes) => {
 
 }
 
+const recuperaTodos = async () => {
+
+    const conexao = await bd.getConexao();
+
+    if(conexao === null)
+        return null;
+
+    try{
+
+        const sql = 'SELECT * FROM sugestoesTbl';
+        const [linhas] = await conexao.query(sql);
+
+        return linhas;
+
+    } catch(error){
+        console.log(error);
+        return false;
+    }
+}
+
+const recupera = async (id) => {
+    const conexao = await bd.getConexao();
+
+    if (conexao === null)
+        return null;
+
+    try {
+
+        const sql = 'SELECT sugestoesBairro FROM sugestoesTbl WHERE id=?';
+        const dados = [id];
+        const [linhas] = await conexao.query(sql, dados);
+
+        return linhas;
+
+    } catch (error) {
+        console.log(error);
+        return false;
+    }
+}
 
 const remove = async (id) => {
     const conexao = await bd.getConexao();
@@ -29,7 +68,7 @@ const remove = async (id) => {
         return null;
 
     try {
-        const sql = 'DELETE FROM usuario WHERE id=?';
+        const sql = 'DELETE FROM sugestoesTbl WHERE id=?';
         const dados = [id];
         await conexao.query(sql, dados);
 
@@ -40,5 +79,4 @@ const remove = async (id) => {
     }
 }
 
-
-module.exports = { inclua, remove }
+module.exports = { inclua, remove, recuperaTodos, recupera }

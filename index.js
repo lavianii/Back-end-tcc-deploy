@@ -64,7 +64,11 @@ const servidor = async () => {
     app.put('/atualizaCrime/:id', rotasCrime.atualizaCrime);
     app.put('/atualizaQtdCrimes/:id', rotasCrime.atualizaQtdCrimes);
 
+    //rotas sugestao
     app.post('/incluirSugestao', rotasSugestao.inclusao);
+    app.get('/recuperaSugestao', rotasSugestao.recuperaTodos);
+    app.get('/recuperaSugestao/:id', rotasSugestao.recupera);
+    app.delete('/deletarSugestao/:id', rotasSugestao.remove);
 
     app.get('/', (req, res) => {
         res.send('Conectado');
