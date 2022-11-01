@@ -1,5 +1,6 @@
 // npm i express mysql2 dotenv nodemon
 
+
 const bd = require('./src/database/bd');
 const express = require('express');
 const app = express();
@@ -8,6 +9,7 @@ const app = express();
 //ter acesso as funcoes
 const rotas = require('./src/controllers/usuarioEnviaComunicado');
 const rotasCrime = require('./src/controllers/crimeEnviaComunicado');
+const rotasSugestao = require('./src/controllers/sugestaoEnviaComunicado');
 
 function middleWareGlobal(req, res, next) {
     console.time('Duraçao');
@@ -61,6 +63,8 @@ const servidor = async () => {
     app.delete('/removeCrime/:id', rotasCrime.removeCrime);
     app.put('/atualizaCrime/:id', rotasCrime.atualizaCrime);
     app.put('/atualizaQtdCrimes/:id', rotasCrime.atualizaQtdCrimes);
+
+    app.post('/incluirSugestao', rotasSugestao.inclusao);
 
     app.get('/', (req, res) => {
         res.send('Conectado');

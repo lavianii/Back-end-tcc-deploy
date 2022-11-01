@@ -13,6 +13,7 @@ const incluaCrime = async (crime) => {
         await conexao.query(sql, dados);
 
         return true;
+      
     } catch (error) {
         console.log(error);
         return false;

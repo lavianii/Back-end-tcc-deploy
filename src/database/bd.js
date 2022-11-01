@@ -28,15 +28,18 @@ async function criaTabela() {
     
     sqlCrimes = 'CREATE TABLE IF NOT EXISTS crimes(id INT not null AUTO_INCREMENT, bairro VARCHAR(60)NOT NULL, tipoCrime VARCHAR(60) NOT NULL, qtd INT NOT NULL DEFAULT 1, PRIMARY KEY (id));';
 
+  sqlSugestoes = 'CREATE TABLE IF NOT EXISTS sugestoesTbl (id int not null AUTO_INCREMENT, sugestoesBairro VARCHAR(60)not null, PRIMARY KEY (id))'
+
     try {
-
-        await conexao.query(sqlUsuario);
-        await conexao.query(sqlCrimes);
-        return true;
-
+      await conexao.query(sqlUsuario);
+      await conexao.query(sqlCrimes);
+      await conexao.query(sqlSugestoes);
+      return true;
+      
     } catch (error) {
 
         return false;
     }
 }
+
 module.exports = { getConexao, criaTabela }
